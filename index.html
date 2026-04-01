@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 480px;
+            height: 240px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            background: linear-gradient(180deg, #1A90F6 0%, #157CD4 100%);
+            position: relative;
+        }
+
+        /* Nubes sutiles de fondo */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 280px;
+            height: 160px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="rgba(255,255,255,0.15)" d="M432 128H237.1c-19.1 0-36.2 11.2-43.9 28.6L160 212.9V210.6C160 171.7 191.7 140 230.6 140H432c7.2 0 16 8.8 16 16s-8.8 16-16 16z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        .screen-container {
+            width: 450px;
+            height: 210px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 10px;
+            z-index: 1;
+        }
+
+        /* --- Panel Izquierdo --- */
+        .weather-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .location-header {
+            font-size: 22px; /* TIPOGRAFÍA MÁS GRANDE */
+            font-weight: 500;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-bottom: -5px; /* Acerca el nombre a la temperatura */
+        }
+
+        .main-temp-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .current-temp {
+            font-size: 95px; /* Un poco más grande para impactar */
+            font-weight: 700;
+            line-height: 0.9;
+        }
+
+        .weather-icon {
+            width: 75px;
+            height: 75px;
+        }
+
+        .description-minmax {
+            font-size: 20px;
+            font-weight: 400;
+            background: rgba(0,0,0,0.1); /* Sombra suave para legibilidad */
+            padding: 2px 8px;
+            border-radius: 5px;
+            width: fit-content;
+        }
+
+        /* --- Panel Derecho --- */
+        .data-right {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 12px;
+        }
+
+        .clock-panel {
+            font-size: 65px;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            padding-bottom: 5px;
+        }
+
+        .comfort-panel {
+            background-color: rgba(255, 255, 255, 0.2); 
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .comfort-item {
+            text-align: center;
+        }
+
+        .icon-small {
+            width: 30px;
+            height: 30px;
+            display: block;
+            margin: 0 auto 4px;
+        }
+
+        .comfort-value {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .comfort-label {
+            font-size: 11px;
+            color: #E0E0E0;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="screen-container">
+        
+        <div class="weather-left">
+            <div class="location-header">
+                San Carlos de Bariloche
+            </div>
+            
+            <div class="main-temp-icon-row">
+                <div class="current-temp" id="temp-main">--°</div>
+                <svg class="weather-icon" viewBox="0 0 512 512">
+                  <path fill="#FFD166" d="M128 320c0 1.9 0 3.8.2 5.6C121.2 322 114.7 320 108 320c-53 0-96 43-96 96s43 96 96 96h20c8.8 0 16-7.2 16-16s-7.2-16-16-16H108c-35.3 0-64-28.7-64-64s28.7-64 64-64c8.8 0 16-7.2 16-16V320z"/>
+                  <path fill="#FFFFFF" d="M432 128H237.1c-19.1 0-36.2 11.2-43.9 28.6L160 212.9V210.6C160 171.7 191.7 140 230.6 140H432c7.2 0 16 8.8 16 16s-8.8 16-16 16V128z"/>
+                </svg>
+            </div>
+            
+            <div class="description-minmax">
+                <span id="temp-minmax">--/--°C</span> • <span id="weather-desc">Cargando...</span>
+            </div>
+        </div>
+        
+        <div class="data-right">
+            <div class="clock-panel" id="clock">00:00</div>
+            
+            <div class="comfort-panel">
+                <div class="comfort-item">
+                    <svg class="icon-small" viewBox="0 0 512 512"><path fill="currentColor" d="M448 192a32 32 0 0 1 32 32v16a224 224 0 1 1-213.33-213.33 32 32 0 1 1-13.34 62.66A160 160 0 1 0 448 224v-16A32 32 0 0 1 448 192z"/></svg>
+                    <div class="comfort-value" id="h-val">--%</div>
+                    <div class="comfort-label">Hum.</div>
+                </div>
+                
+                <div class="comfort-item">
+                    <svg class="icon-small" viewBox="0 0 512 512"><path fill="currentColor" d="M112 432a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm192 16h-32v-256H160a32 32 0 0 1 0-64h112v-64c0-17.7 14.3-32 32-32s32 14.3 32 32v256h32z"/></svg>
+                    <div class="comfort-value" id="st-val">--°</div>
+                    <div class="comfort-label">S.T.</div>
+                </div>
+                
+                <div class="comfort-item">
+                    <svg class="icon-small" viewBox="0 0 512 512"><path fill="currentColor" d="M384 256c0-10.7-5.1-19.9-12.8-25.6v23.2C384 256 384 256 384 256zM320 256a64 64 0 1 0 128 0 64 64 0 1 0-128 0zM192 256a128 128 0 1 1 256 0 128 128 0 1 1-256 0z"/></svg>
+                    <div class="comfort-value" id="uv-val">-</div>
+                    <div class="comfort-label">UV</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+
+        async function updateWeather() {
+            try {
+                const res = await fetch('https://wttr.in/Bariloche?format=j1');
+                const data = await res.json();
+                const cur = data.current_condition[0];
+                const day = data.weather[0];
+
+                document.getElementById('temp-main').textContent = `${cur.temp_C}°`;
+                document.getElementById('weather-desc').textContent = cur.lang_es[0].value;
+                document.getElementById('h-val').textContent = `${cur.humidity}%`;
+                document.getElementById('st-val').textContent = `${cur.FeelsLikeC}°`;
+                document.getElementById('uv-val').textContent = cur.uvIndex;
+                document.getElementById('temp-minmax').textContent = `${day.mintempC}/${day.maxtempC}°C`;
+            } catch (e) { console.error(e); }
+        }
+
+        setInterval(updateClock, 1000);
+        setInterval(updateWeather, 1800000);
+        updateClock();
+        updateWeather();
+    </script>
+</body>
+</html>
