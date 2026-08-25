@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clima Bariloche</title>
+  <title>Clima Bariloche (480x240)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,25 +12,29 @@
 <body>
   <div class="app-container">
     
-    <header class="location-header">
-      <img src="img/pin.svg" alt="Ubicación" class="icon-pin">
-      <h1 id="location-name">San Carlos de Bariloche, Argentina</h1>
-    </header>
+    <!-- Columna Izquierda -->
+    <div class="left-column">
+      <header class="location-header">
+        <img src="img/pin.svg" alt="Ubicación" class="icon-pin">
+        <h1 id="location-name">San Carlos de Bariloche</h1>
+      </header>
 
-    <main class="main-weather">
-      <div class="weather-row">
-        <div class="temperature-container">
-          <span id="main-temp" class="large-temp">--</span><span class="unit">°C</span>
+      <main class="main-weather">
+        <div class="weather-row">
+          <div class="temperature-container">
+            <span id="main-temp" class="large-temp">--</span><span class="unit">°C</span>
+          </div>
+          <img id="main-weather-icon" src="img/cloudy-with-sun.svg" alt="Estado del clima" class="weather-icon-main">
         </div>
-        <img id="main-weather-icon" src="img/cloudy-with-sun.svg" alt="Estado del clima" class="weather-icon-main">
-      </div>
-      
-      <div class="weather-status-detail">
-        <span id="temp-range">--/--°C</span>
-        <span id="weather-desc">Cargando...</span>
-      </div>
-    </main>
+        
+        <div class="weather-status-detail">
+          <span id="temp-range">--/--°C</span>
+          <span id="weather-desc">Cargando...</span>
+        </div>
+      </main>
+    </div>
 
+    <!-- Columna Derecha -->
     <section class="comfort-card">
       <h2 class="comfort-title">Comodidad</h2>
       
@@ -44,13 +48,12 @@
         <div class="metric-group">
           <img src="img/thermometer.svg" alt="Sensación Térmica" class="comfort-icon">
           <span id="comfort-feels-like" class="comfort-value">--°C</span>
-          <span class="comfort-label">Sensación Térmica</span>
+          <span class="comfort-label">Sensación</span>
         </div>
         
         <div class="metric-group">
-          <!-- Este icono es un placeholder, el UV es dinámico -->
           <div class="uv-placeholder">
-            <span id="comfort-uv" class="comfort-value uv-value">--</span>
+            <span id="comfort-uv" class="comfort-value">--</span>
           </div>
           <span class="comfort-label">Índice UV</span>
         </div>
