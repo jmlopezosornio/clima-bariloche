@@ -1,0 +1,157 @@
+:root {
+  --bg-color: #5A6772; /* Color base gris azulado de la imagen */
+  --card-bg: rgba(94, 107, 120, 0.7); /* Fondo de la tarjeta Comodidad */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --uv-bg: rgba(255, 255, 255, 0.15);
+  --font-family: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Fondo de nubes (reemplazar con una imagen real si se desea) */
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 400px; /* Tamaño móvil simulado */
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Header de Ubicación */
+.location-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-pin {
+  width: 18px;
+  height: 18px;
+}
+
+.location-header h1 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Sección Principal del Clima */
+.main-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weather-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temperature-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.large-temp {
+  font-size: 7rem;
+  font-weight: 300; /* Extra fina */
+  line-height: 1;
+}
+
+.unit {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.weather-icon-main {
+  width: 100px;
+  height: 100px;
+}
+
+.weather-status-detail {
+  display: flex;
+  gap: 8px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Tarjeta de Comodidad */
+.comfort-card {
+  background-color: var(--card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.comfort-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: var(--text-secondary);
+}
+
+.comfort-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  text-align: center;
+}
+
+.metric-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.comfort-icon {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
+}
+
+.comfort-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.comfort-label {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilo especial para el placeholder del UV (se reemplazará por icono real) */
+.uv-placeholder {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uv-value {
+  font-size: 1.8rem;
+}

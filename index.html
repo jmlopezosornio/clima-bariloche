@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Bariloche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <header class="location-header">
+      <img src="img/pin.svg" alt="Ubicación" class="icon-pin">
+      <h1 id="location-name">San Carlos de Bariloche, Argentina</h1>
+    </header>
+
+    <main class="main-weather">
+      <div class="weather-row">
+        <div class="temperature-container">
+          <span id="main-temp" class="large-temp">--</span><span class="unit">°C</span>
+        </div>
+        <img id="main-weather-icon" src="img/cloudy-with-sun.svg" alt="Estado del clima" class="weather-icon-main">
+      </div>
+      
+      <div class="weather-status-detail">
+        <span id="temp-range">--/--°C</span>
+        <span id="weather-desc">Cargando...</span>
+      </div>
+    </main>
+
+    <section class="comfort-card">
+      <h2 class="comfort-title">Comodidad</h2>
+      
+      <div class="comfort-metrics">
+        <div class="metric-group">
+          <img src="img/droplet.svg" alt="Humedad" class="comfort-icon">
+          <span id="comfort-humidity" class="comfort-value">--%</span>
+          <span class="comfort-label">Humedad</span>
+        </div>
+        
+        <div class="metric-group">
+          <img src="img/thermometer.svg" alt="Sensación Térmica" class="comfort-icon">
+          <span id="comfort-feels-like" class="comfort-value">--°C</span>
+          <span class="comfort-label">Sensación Térmica</span>
+        </div>
+        
+        <div class="metric-group">
+          <!-- Este icono es un placeholder, el UV es dinámico -->
+          <div class="uv-placeholder">
+            <span id="comfort-uv" class="comfort-value uv-value">--</span>
+          </div>
+          <span class="comfort-label">Índice UV</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
