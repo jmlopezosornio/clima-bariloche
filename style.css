@@ -1,9 +1,8 @@
 :root {
-  --bg-color: #5A6772; /* Color base gris azulado de la imagen */
-  --card-bg: rgba(94, 107, 120, 0.7); /* Fondo de la tarjeta Comodidad */
+  --bg-color: #5A6772;
+  --card-bg: rgba(94, 107, 120, 0.7);
   --text-primary: #FFFFFF;
   --text-secondary: #E0E0E0;
-  --uv-bg: rgba(255, 255, 255, 0.15);
   --font-family: 'Open Sans', sans-serif;
 }
 
@@ -21,50 +20,63 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Fondo de nubes (reemplazar con una imagen real si se desea) */
+  /* Fondo responsivo */
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2000&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
 }
 
+/* Contenedor exacto de 480x240 px */
 .app-container {
-  width: 100%;
-  max-width: 400px; /* Tamaño móvil simulado */
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  width: 480px;
+  height: 240px;
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dividido en 2 columnas */
+  gap: 15px;
+  align-items: center;
+  background: rgba(45, 55, 65, 0.85); /* Fondo semitransparente para delimitar la caja */
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-/* Header de Ubicación */
+/* Columna Izquierda: Ubicación y Temperatura */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .location-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .icon-pin {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 
 .location-header h1 {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 400;
-  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Sección Principal del Clima */
 .main-weather {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .weather-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .temperature-container {
@@ -73,49 +85,53 @@ body {
 }
 
 .large-temp {
-  font-size: 7rem;
-  font-weight: 300; /* Extra fina */
+  font-size: 4rem;
+  font-weight: 300;
   line-height: 1;
 }
 
 .unit {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .weather-icon-main {
-  width: 100px;
-  height: 100px;
+  width: 65px;
+  height: 65px;
 }
 
 .weather-status-detail {
   display: flex;
   gap: 8px;
-  font-size: 1.6rem;
+  font-size: 1.05rem;
   font-weight: 400;
   color: var(--text-secondary);
+  margin-top: 5px;
 }
 
-/* Tarjeta de Comodidad */
+/* Columna Derecha: Tarjeta de Comodidad */
 .comfort-card {
   background-color: var(--card-bg);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 20px;
+  padding: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .comfort-title {
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 25px;
   color: var(--text-secondary);
 }
 
 .comfort-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 8px;
   text-align: center;
 }
 
@@ -123,35 +139,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .comfort-icon {
-  width: 35px;
-  height: 35px;
-  margin-bottom: 5px;
+  width: 24px;
+  height: 24px;
 }
 
 .comfort-value {
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .comfort-label {
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Estilo especial para el placeholder del UV (se reemplazará por icono real) */
 .uv-placeholder {
-  width: 35px;
-  height: 35px;
+  height: 24px;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.uv-value {
-  font-size: 1.8rem;
+  justify-content: center;
 }
