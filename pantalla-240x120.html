@@ -23,91 +23,121 @@
       height: 120px;
       background: rgba(45, 55, 65, 0.95);
       border-radius: 8px;
-      padding: 8px 10px;
+      padding: 6px 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
     }
+
+    /* Título: San Carlos de Bariloche con tamaño duplicado (1.3rem) */
     .header {
       display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 0.65rem;
-      color: #E0E0E0;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 3px;
     }
-    .header img { width: 10px; height: 10px; }
+    .header img { width: 16px; height: 16px; }
     .header h1 {
-      font-weight: 400;
-      font-size: 0.65rem;
+      font-weight: 600;
+      font-size: 1.3rem; /* 100% más grande */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: #FFF;
     }
-    .main-info {
+
+    /* Cuerpo en 2 columnas para optimizar espacio */
+    .body-content {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-    .temp-box {
-      font-size: 2.2rem;
-      font-weight: 300;
-      line-height: 1;
-    }
-    .unit { font-size: 1rem; }
-    .weather-icon-main { width: 36px; height: 36px; }
-    .status-line {
-      font-size: 0.65rem;
-      color: #CCC;
-      display: flex;
       justify-content: space-between;
+      height: 100%;
     }
+
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Temperatura duplicada (4.4rem) */
+    .temp-box {
+      font-size: 4.4rem; /* 100% más grande */
+      font-weight: 300;
+      line-height: 0.9;
+    }
+    .unit { font-size: 2rem; } /* 100% más grande */
+
+    .status-text {
+      font-size: 1.3rem; /* 100% más grande */
+      color: #DDD;
+      margin-top: 2px;
+    }
+
+    .right-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .weather-icon-main { width: 40px; height: 40px; }
+
+    /* Métricas con textos duplicados (1.2rem y 1.3rem) */
     .metrics {
       display: flex;
-      justify-content: space-around;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 4px;
-      font-size: 0.6rem;
+      flex-direction: column;
+      gap: 2px;
+      text-align: right;
     }
     .metric-item {
       display: flex;
       align-items: center;
-      gap: 3px;
+      justify-content: flex-end;
+      gap: 4px;
+      font-size: 1.2rem; /* 100% más grande */
+      color: #CCC;
     }
-    .metric-item img { width: 10px; height: 10px; }
+    .metric-item img { width: 14px; height: 14px; }
+    .metric-val {
+      font-weight: 600;
+      font-size: 1.3rem; /* 100% más grande */
+      color: #FFF;
+    }
   </style>
 </head>
 <body>
   <div class="app-container">
+    <!-- Header con el nombre completo y tipografía agrandada -->
     <div class="header">
       <img src="img/pin.svg" alt="Ubicación">
-      <h1 id="location-name">Bariloche</h1>
+      <h1 id="location-name">San Carlos de Bariloche</h1>
     </div>
 
-    <div class="main-info">
-      <div class="temp-box">
-        <span id="main-temp">--</span><span class="unit">°C</span>
+    <div class="body-content">
+      <!-- Columna Izquierda: Temp y Estado -->
+      <div class="left-side">
+        <div class="temp-box">
+          <span id="main-temp">--</span><span class="unit">°C</span>
+        </div>
+        <div id="weather-desc" class="status-text">Cargando...</div>
       </div>
-      <img id="main-weather-icon" src="img/cloudy-with-sun.svg" class="weather-icon-main" alt="Clima">
-    </div>
 
-    <div class="status-line">
-      <span id="weather-desc">Cargando...</span>
-      <span id="temp-range">--/--°C</span>
-    </div>
-
-    <div class="metrics">
-      <div class="metric-item">
-        <img src="img/droplet.svg" alt="Humedad">
-        <span id="comfort-humidity">--%</span>
-      </div>
-      <div class="metric-item">
-        <img src="img/thermometer.svg" alt="ST">
-        <span id="comfort-feels-like">--°C</span>
-      </div>
-      <div class="metric-item">
-        <span>UV:</span>
-        <span id="comfort-uv">--</span>
+      <!-- Columna Derecha: Icono y Métricas -->
+      <div class="right-side">
+        <img id="main-weather-icon" src="img/cloudy-with-sun.svg" class="weather-icon-main" alt="Clima">
+        <div class="metrics">
+          <div class="metric-item">
+            <img src="img/droplet.svg" alt="Humedad">
+            <span id="comfort-humidity" class="metric-val">--%</span>
+          </div>
+          <div class="metric-item">
+            <img src="img/thermometer.svg" alt="ST">
+            <span id="comfort-feels-like" class="metric-val">--°C</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
