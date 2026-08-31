@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Bariloche (160x320)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #3A4750;
+      color: #FFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .app-container {
+      width: 160px;
+      height: 320px;
+      background: rgba(45, 55, 65, 0.95);
+      border-radius: 12px;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      overflow: hidden;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      color: #E0E0E0;
+    }
+    .header img { width: 10px; height: 10px; }
+    .header h1 {
+      font-weight: 400;
+      font-size: 0.65rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
+    }
+    .weather-icon-main { width: 48px; height: 48px; margin: 4px 0; }
+    .temp-box {
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .unit { font-size: 1.2rem; }
+    .status-text {
+      font-size: 0.75rem;
+      color: #DDD;
+      margin-top: 2px;
+    }
+    .temp-range {
+      font-size: 0.7rem;
+      color: #AAA;
+      margin-bottom: 6px;
+    }
+    .comfort-card {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 8px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .metric-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      padding: 0 4px;
+    }
+    .metric-row img { width: 12px; height: 12px; }
+    .metric-label { color: #BBB; }
+    .metric-val { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <img src="img/pin.svg" alt="Ubicación">
+      <h1 id="location-name">Bariloche</h1>
+    </div>
+
+    <img id="main-weather-icon" src="img/cloudy-with-sun.svg" class="weather-icon-main" alt="Clima">
+
+    <div class="temp-box">
+      <span id="main-temp">--</span><span class="unit">°C</span>
+    </div>
+
+    <div>
+      <div id="weather-desc" class="status-text">Cargando...</div>
+      <div id="temp-range" class="temp-range">--/--°C</div>
+    </div>
+
+    <div class="comfort-card">
+      <div class="metric-row">
+        <img src="img/droplet.svg" alt="Humedad">
+        <span class="metric-label">Hum</span>
+        <span id="comfort-humidity" class="metric-val">--%</span>
+      </div>
+      <div class="metric-row">
+        <img src="img/thermometer.svg" alt="ST">
+        <span class="metric-label">ST</span>
+        <span id="comfort-feels-like" class="metric-val">--°C</span>
+      </div>
+      <div class="metric-row">
+        <span style="font-weight:bold; font-size:0.6rem;">UV</span>
+        <span class="metric-label">Índice</span>
+        <span id="comfort-uv" class="metric-val">--</span>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
