@@ -1,11 +1,5 @@
-CLIMA BARILOCHE – FONDOS AUTOMÁTICOS
-Subir index.html, script.js, style.css, pantalla-160x320.html, pantalla-240x120.html y la carpeta img al repositorio clima-bariloche, reemplazando los archivos existentes.
-Mantener habilitado GitHub Pages. Las direcciones existentes no cambian.
-Página principal: https://jmlopezosornio.github.io/clima-bariloche/
-Vertical: https://jmlopezosornio.github.io/clima-bariloche/pantalla-160x320.html
-Horizontal: https://jmlopezosornio.github.io/clima-bariloche/pantalla-240x120.html
-Fondos SVG locales de cielo: soleado, nublado, lluvia, nieve, niebla y tormenta. Son ilustraciones limpias inspiradas en las referencias, sin datos incrustados. Por la noche se oscurece el fondo.
-Datos de Open-Meteo: temperatura actual, humedad, sensación térmica, viento en km/h y mínima/máxima pronosticadas para el día. Consulta cada 10 minutos; reloj en horario argentino. La hora de los datos se muestra por separado.
-Sin conexión conserva la última lectura guardada y muestra un aviso; no inventa valores.
-Se verificaron la sintaxis y la lógica con respuestas simuladas. No se pudo ejecutar una prueba visual con navegador ni verificar la respuesta en vivo de la API desde este entorno.
-Para uso comercial revisar condiciones de Open-Meteo: https://open-meteo.com/en/terms
+CLIMA BARILOCHE – V2 LETRAS MÁS GRANDES
+Subir los archivos HTML, style.css, script.js y la carpeta img al repositorio, reemplazando los anteriores.
+Se amplían ciudad, estado del clima, mínima/máxima, humedad, sensación y viento. Se elimina el bloque inferior de fecha, hora, actualización y fuente.
+Incluye las páginas principal, 160x320 y 240x120. Se mantienen los seis fondos automáticos y la consulta de datos cada diez minutos.
+Datos meteorológicos: Open-Meteo (https://open-meteo.com/).

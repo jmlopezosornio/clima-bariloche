@@ -30,6 +30,5 @@ async function getWeather(){
  catch(error){updateStatus(true);if(!lastTime)put('weather-desc','Clima no disponible');console.warn('No se pudo actualizar el clima:',error.message);}
  finally{clearTimeout(timer);}
 }
-function updateClock(){put('clock',new Intl.DateTimeFormat('es-AR',{timeZone:zone,day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date()));}
 try{const stored=JSON.parse(localStorage.getItem('bariloche-weather-v2'));if(stored?.current)render(stored);}catch{}
-updateClock();setInterval(updateClock,1000);getWeather();setInterval(getWeather,10*60*1000);window.addEventListener('online',getWeather);
+getWeather();setInterval(getWeather,10*60*1000);window.addEventListener('online',getWeather);
