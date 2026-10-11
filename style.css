@@ -19,3 +19,185 @@ body:not(.led) .app-container{justify-content:space-between;gap:34px}
 .horizontal .label{font-size:10px}
 .horizontal strong{font-size:12px}
 @media(max-width:380px){body:not(.led) .app-container{padding:28px 18px}body:not(.led) strong{font-size:24px}body:not(.led) .label{font-size:14px}}
+/* =====================================================
+   PANTALLA LED 240 x 280 PX
+   ===================================================== */
+
+.pantalla-240x280 {
+    width: 240px;
+    height: 280px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+
+.pantalla-240x280 .app-container {
+
+    width: 240px;
+    height: 280px;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding: 12px 14px;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 0;
+}
+
+
+/* CIUDAD */
+
+.pantalla-240x280 h1 {
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    line-height: 1.08;
+
+    margin: 0;
+}
+
+
+.pantalla-240x280 .region {
+
+    font-size: 10px;
+
+    margin-top: 4px;
+
+    opacity: 0.85;
+}
+
+
+/* TEMPERATURA + ICONO */
+
+.pantalla-240x280 .weather-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 6px;
+}
+
+
+.pantalla-240x280 .temperature {
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+
+    white-space: nowrap;
+}
+
+
+.pantalla-240x280 .unit {
+
+    font-size: 25px;
+
+    letter-spacing: -1px;
+
+    margin-top: 9px;
+
+    vertical-align: top;
+
+    display: inline-block;
+}
+
+
+.pantalla-240x280 #main-weather-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    flex-shrink: 0;
+}
+
+
+/* ESTADO DEL TIEMPO */
+
+.pantalla-240x280 #weather-desc {
+
+    font-size: 20px;
+
+    line-height: 1.05;
+
+    margin-top: 4px;
+}
+
+
+/* MINIMA / MAXIMA */
+
+.pantalla-240x280 #temp-range {
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+    opacity: 0.9;
+}
+
+
+/* HUMEDAD / SENSACION / VIENTO */
+
+.pantalla-240x280 .comfort-card {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 3px;
+
+    padding: 10px 4px;
+
+    background: #eef6ff24;
+
+    border: 1px solid #ffffff30;
+
+    border-radius: 9px;
+
+    text-align: center;
+}
+
+
+.pantalla-240x280 .label {
+
+    display: block;
+
+    font-size: 9px;
+
+    margin-bottom: 5px;
+
+    opacity: 0.9;
+}
+
+
+.pantalla-240x280 strong {
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
